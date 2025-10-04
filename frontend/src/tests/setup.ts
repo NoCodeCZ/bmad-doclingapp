@@ -1,52 +1,64 @@
 import '@testing-library/jest-dom';
+import { vi } from 'vitest';
+import React from 'react';
 
 // Mock Next.js router
-jest.mock('next/router', () => ({
+vi.mock('next/router', () => ({
   useRouter() {
     return {
       route: '/',
       pathname: '/',
       query: '',
       asPath: '',
-      push: jest.fn(),
-      pop: jest.fn(),
-      reload: jest.fn(),
-      back: jest.fn(),
-      prefetch: jest.fn(),
-      beforePopState: jest.fn(),
+      push: vi.fn(),
+      pop: vi.fn(),
+      reload: vi.fn(),
+      back: vi.fn(),
+      prefetch: vi.fn(),
+      beforePopState: vi.fn(),
       events: {
-        on: jest.fn(),
-        off: jest.fn(),
-        emit: jest.fn(),
+        on: vi.fn(),
+        off: vi.fn(),
+        emit: vi.fn(),
       },
     };
   },
 }));
 
 // Mock Next.js image
-jest.mock('next/image', () => ({
+vi.mock('next/image', () => ({
   __esModule: true,
-  default: (props: any) => <img {...props} />,
+  default: (props: any) => React.createElement('img', props),
+}));
+
+// Mock lucide-react icons
+vi.mock('lucide-react', () => ({
+  Upload: vi.fn(() => React.createElement('div', { 'data-testid': 'upload-icon' }, 'Upload')),
+  File: vi.fn(() => React.createElement('div', { 'data-testid': 'file-icon' }, 'File')),
+  X: vi.fn(() => React.createElement('div', { 'data-testid': 'x-icon' }, 'X')),
+  Loader2: vi.fn(() => React.createElement('div', { 'data-testid': 'loader-icon' }, 'Loader')),
+  Check: vi.fn(() => React.createElement('div', { 'data-testid': 'check-icon' }, 'Check')),
+  Circle: vi.fn(() => React.createElement('div', { 'data-testid': 'circle-icon' }, 'Circle')),
 }));
 
 // Mock Supabase
-jest.mock('@supabase/supabase-js', () => ({
-  createClient: jest.fn(() => ({
-    from: jest.fn(() => ({
-      select: jest.fn(() => ({
-        eq: jest.fn(() => ({
-          single: jest.fn(() => Promise.resolve({ data: null, error: null })),
+vi.mock('@supabase/supabase-js', () => ({
+  createClient: vi.fn(() => ({
+    from: vi.fn(() => ({
+      select: vi.fn(() => ({
+        eq: vi.fn(() => ({
+          single: vi.fn(() => Promise.resolve({ data: null, error: null })),
         })),
-        insert: jest.fn(() => Promise.resolve({ data: null, error: null })),
-        update: jest.fn(() => Promise.resolve({ data: null, error: null })),
-        delete: jest.fn(() => Promise.resolve({ data: null, error: null })),
+        insert: vi.fn(() => Promise.resolve({ data: null, error: null })),
+        update: vi.fn(() => Promise.resolve({ data: null, error: null })),
+        delete: vi.fn(() => Promise.resolve({ data: null, error: null })),
       })),
     })),
     storage: {
-      from: jest.fn(() => ({
-        upload: jest.fn(() => Promise.resolve({ data: null, error: null })),
-        download: jest.fn(() => Promise.resolve({ data: null, error: null })),
-        getPublicUrl: jest.fn(() => ({ data: { publicUrl: '' } })),
+      from: vi.fn(() => ({
+        upload: vi.fn(() => Promise.resolve({ data: null, error: null })),
+        download: vi.fn(() => Promise.resolve({ data: null, error: null })),
+        getPublicUrl: vi.fn(() => ({ data: { publicUrl: '' } })),
       })),
     },
   })),

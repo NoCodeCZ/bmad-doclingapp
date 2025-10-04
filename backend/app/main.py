@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.endpoints import health, upload, status, download
+from app.api.endpoints import health, upload, process, status, download
 from app.core.config import settings
 
 app = FastAPI(
@@ -22,6 +22,7 @@ app.add_middleware(
 # Include routers
 app.include_router(health.router, prefix="/api", tags=["health"])
 app.include_router(upload.router, prefix="/api", tags=["upload"])
+app.include_router(process.router, prefix="/api", tags=["process"])
 app.include_router(status.router, prefix="/api", tags=["status"])
 app.include_router(download.router, prefix="/api", tags=["download"])
 
