@@ -91,7 +91,14 @@ workshop-document-processor/
 
 ### Development
 
-1. **Start both services**
+1. **Quick setup (recommended)**
+   ```bash
+   # Run the automated setup script
+   chmod +x start-dev.sh
+   ./start-dev.sh
+   ```
+
+2. **Start both services**
    ```bash
    npm run dev
    ```
@@ -99,14 +106,51 @@ workshop-document-processor/
    - Frontend: http://localhost:3000
    - Backend: http://localhost:8000
 
-2. **Start services individually**
+3. **Start services individually**
    ```bash
    # Frontend only
    npm run dev:frontend
-   
+
    # Backend only
    npm run dev:backend
    ```
+
+### Troubleshooting
+
+#### White Screen After 2 Seconds
+If the frontend shows the UI briefly then goes white:
+
+**Cause**: Frontend is trying to make API calls to the backend, but the backend isn't running.
+
+**Solution**:
+1. Make sure the backend is started first: `cd backend && python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000`
+2. Then start the frontend: `cd frontend && npm run dev`
+3. Refresh the frontend page
+
+**Prevention**: Always start the backend before the frontend. The frontend will show a helpful error message if the backend is unavailable.
+
+#### Port Conflicts
+If you see "port already in use" errors:
+```bash
+# Check what's using the ports
+lsof -i :3000  # Frontend port
+lsof -i :8000  # Backend port
+
+# Kill processes if needed
+kill -9 <PID>
+```
+
+#### Missing Dependencies
+If you get import errors:
+```bash
+# Reinstall all dependencies
+./start-dev.sh
+
+# Or manually:
+npm install
+cd backend && pip install -r requirements.txt
+cd ../frontend && npm install
+```
 
 ### Testing
 

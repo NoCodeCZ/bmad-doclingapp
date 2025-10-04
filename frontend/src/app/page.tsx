@@ -23,16 +23,23 @@ export default function Home() {
   const [documentId, setDocumentId] = useState<string | null>(null);
   const [documentStatus, setDocumentStatus] = useState<DocumentStatusResponse | null>(null);
   const [isPolling, setIsPolling] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
   const { uploadFile, isUploading, uploadProgress, error, reset } = useFileUpload();
 
   const handleFileUpload = async (file: File, options: ProcessingOptions) => {
-    const uploadedDocumentId = await uploadFile(file, options);
+    try {
+      setApiError(null);
+      const uploadedDocumentId = await uploadFile(file, options);
 
-    if (uploadedDocumentId) {
-      setDocumentId(uploadedDocumentId);
-      setIsPolling(true);
-      // Start polling for status immediately
-      pollDocumentStatus(uploadedDocumentId);
+      if (uploadedDocumentId) {
+        setDocumentId(uploadedDocumentId);
+        setIsPolling(true);
+        // Start polling for status immediately
+        pollDocumentStatus(uploadedDocumentId);
+      }
+    } catch (err) {
+      setApiError('Backend service is not available. Please start the backend server first.');
+      console.error('Upload failed:', err);
     }
   };
 
@@ -54,6 +61,7 @@ export default function Home() {
       }
     } catch (err) {
       console.error('Error polling document status:', err);
+      setApiError('Lost connection to backend service. Please check that the backend server is running.');
       setIsPolling(false);
     }
   };
@@ -63,6 +71,7 @@ export default function Home() {
     setDocumentId(null);
     setDocumentStatus(null);
     setIsPolling(false);
+    setApiError(null);
   };
 
   const handleDownload = () => {
@@ -70,6 +79,39 @@ export default function Home() {
       window.open(documentStatus.download_url, '_blank');
     }
   };
+
+  // Show error screen if backend is not available
+  if (apiError) {
+    return (
+      <main className="min-h-screen bg-background flex items-center justify-center">
+        <div className="max-w-md mx-auto text-center space-y-6 p-6">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold text-red-600">Service Unavailable</h1>
+            <p className="text-muted-foreground">{apiError}</p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-muted p-4 rounded-lg text-left text-sm">
+              <h3 className="font-medium mb-2">To fix this issue:</h3>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Open a new terminal</li>
+                <li>Navigate to the backend directory: <code className="bg-background px-1 py-0.5 rounded">cd backend</code></li>
+                <li>Start the backend server: <code className="bg-background px-1 py-0.5 rounded">python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000</code></li>
+                <li>Refresh this page</li>
+              </ol>
+            </div>
+
+            <button
+              onClick={() => window.location.reload()}
+              className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+            >
+              Refresh Page
+            </button>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-background">
@@ -105,7 +147,7 @@ export default function Home() {
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
                   Transform your PDF, DOCX, PPTX, or XLSX files into clean,
-                  AI-optimized markdown format perfect for use in Open WebUI's RAG system.
+                  AI-optimized markdown format perfect for use in Open WebUI&apos;s RAG system.
                 </p>
               </div>
 

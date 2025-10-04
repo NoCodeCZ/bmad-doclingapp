@@ -226,7 +226,7 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
                   Enable OCR for scanned documents
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Use this option for PDFs that contain scanned images or text that can't be selected
+                  Use this option for PDFs that contain scanned images or text that can&apos;t be selected
                 </p>
               </div>
             </div>
