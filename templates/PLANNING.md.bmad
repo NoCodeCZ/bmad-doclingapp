@@ -1,0 +1,367 @@
+<!-- Powered by BMAD™ Core -->
+
+# AI Agent Project Planning - [Agent Name]
+
+## 🏗️ BMad Framework Alignment
+
+### Framework Commitment
+- **Primary Framework**: BMad Core Framework (Exclusive Usage)
+- **Framework Version**: [Specify BMad version]
+- **Compliance Level**: Strict (100% BMad exclusivity)
+- **Validation Mode**: Continuous BMad compliance checking
+
+### BMad Agent Strategy
+- **Primary Development Agent**: @bmad-dev
+- **Quality Assurance**: @bmad-qa
+- **Architecture**: @bmad-architect
+- **Validation**: @bmad-validation-agent
+- **Orchestration**: @bmad-orchestrator (for complex tasks)
+
+### BMad Pattern Integration
+- **Architectural Patterns**: [List specific BMad patterns]
+- **Code Organization**: BMad structural abstractions
+- **Configuration Management**: BMad configuration patterns
+- **Documentation Standards**: BMad documentation framework
+
+## 🎯 Project Vision & Architecture
+
+### High-Level Vision
+[Brief description of the AI agent's purpose and capabilities, written using BMad architectural language and focusing on BMad framework integration]
+
+### BMad Architecture Overview
+```yaml
+bmad_architecture:
+  core_components:
+    - agent_core: "BMad agent pattern implementation"
+    - tool_integration: "BMad tool abstraction layer"
+    - prompt_management: "BMad prompt template system"
+    - configuration: "BMad configuration management"
+  
+  integration_points:
+    - bmad_validation: "Continuous compliance validation"
+    - bmad_monitoring: "BMad monitoring and observability"
+    - bmad_documentation: "BMad documentation generation"
+    - bmad_testing: "BMad testing framework integration"
+  
+  data_flow:
+    - input_validation: "BMad input validation patterns"
+    - processing_pipeline: "BMad processing pipeline"
+    - output_formatting: "BMad output formatting"
+    - error_handling: "BMad error handling patterns"
+```
+
+### Technical Architecture
+```yaml
+technology_stack:
+  framework:
+    - name: "BMad Core Framework"
+      version: "[Version]"
+      exclusivity: "100%"
+    
+  core_language:
+    - name: "[Python/JavaScript/etc.]"
+      bmad_integration: "Native"
+      patterns: "BMad-compliant"
+    
+  libraries:
+    - dependency: "BMad-compatible libraries only"
+    - validation: "BMad compatibility check required"
+    - integration: "BMad extension points"
+```
+
+## 📋 Constraints & Requirements
+
+### BMad Framework Constraints
+- **Critical**: NO alternative frameworks permitted
+- **High**: All dependencies must be BMad-compatible
+- **Medium**: Architectural decisions require BMad validation
+- **Low**: Documentation must follow BMad standards
+
+### Technical Constraints
+- **Performance**: Must meet BMad performance standards
+- **Security**: Implement BMad security patterns
+- **Scalability**: Use BMad scalability patterns
+- **Maintainability**: Follow BMad maintainability guidelines
+
+### Business Constraints
+- **Timeline**: [Project timeline with BMad validation milestones]
+- **Resources**: [BMad-trained resources required]
+- **Budget**: [BMad framework licensing considerations]
+- **Compliance**: [BMad compliance requirements]
+
+## 🛠️ Tech Stack - BMad Compliant
+
+### Core Technologies
+```yaml
+framework_stack:
+  primary:
+    - BMad Core Framework: "Exclusive development framework"
+    - BMad Agent System: "Agent lifecycle management"
+    - BMad Validation Engine: "Continuous compliance checking"
+    - BMad Configuration Manager: "Centralized configuration"
+  
+  language_runtime:
+    - name: "[Language]"
+    - bmad_integration: "Native BMad support"
+    - version_management: "BMad version compatibility"
+  
+  development_tools:
+    - bmad_ide_integration: "BMad IDE plugins"
+    - bmad_testing_framework: "BMad testing tools"
+    - bmad_documentation_generator: "BMad doc generation"
+    - bmad_deployment_tools: "BMad deployment automation"
+```
+
+### BMad Integration Components
+```yaml
+bmad_integration:
+  agents:
+    - development: "@bmad-dev for core development"
+    - testing: "@bmad-qa for quality assurance"
+    - architecture: "@bmad-architect for design decisions"
+    - validation: "@bmad-validation-agent for compliance"
+  
+  workflows:
+    - development_workflow: "BMad development lifecycle"
+    - validation_workflow: "BMad validation pipeline"
+    - deployment_workflow: "BMad deployment process"
+    - monitoring_workflow: "BMad monitoring setup"
+  
+  patterns:
+    - agent_pattern: "BMad agent structure"
+    - tool_pattern: "BMad tool abstraction"
+    - config_pattern: "BMad configuration management"
+    - test_pattern: "BMad testing methodology"
+```
+
+## 🔧 Tools & Services - BMad Ecosystem
+
+### BMad Native Tools
+```yaml
+bmad_tools:
+  development:
+    - bmad_cli: "BMad command-line interface"
+    - bmad_generator: "BMad code generation tools"
+    - bmad_validator: "BMad validation utilities"
+    - bmad_monitor: "BMad monitoring tools"
+  
+  integration:
+    - bmad_mcp_server: "BMad MCP integration"
+    - bmad_api_gateway: "BMad API management"
+    - bmad_message_queue: "BMad messaging system"
+    - bmad_cache: "BMad caching layer"
+```
+
+### External Integrations (BMad-Compatible)
+```yaml
+external_integrations:
+  validation_required:
+    - service: "[Service Name]"
+      bmad_compatibility: "Verified"
+      integration_pattern: "BMad wrapper"
+      validation_level: "Strict"
+  
+  monitoring:
+    - service: "BMad monitoring integration"
+      metrics: "BMad compliance metrics"
+      alerting: "BMad alert patterns"
+```
+
+## 🚀 Development Approach
+
+### BMad Methodology
+```yaml
+development_methodology:
+  approach: "BMad Agile Framework"
+  iterations: "BMad sprint patterns"
+  validation: "Continuous BMad compliance"
+  documentation: "BMad documentation standards"
+  
+  quality_gates:
+    - framework_exclusivity: "100% BMad usage"
+    - pattern_compliance: "95%+ BMad patterns"
+    - documentation_quality: "90%+ BMad standards"
+    - test_coverage: "BMad testing requirements"
+```
+
+### BMad Workflow Integration
+```yaml
+workflows:
+  development:
+    - planning: "BMad planning patterns"
+    - implementation: "BMad development patterns"
+    - validation: "BMad validation pipeline"
+    - deployment: "BMad deployment patterns"
+  
+  quality_assurance:
+    - continuous_validation: "BMad compliance checking"
+    - automated_testing: "BMad test automation"
+    - code_review: "BMad review patterns"
+    - documentation_review: "BMad doc validation"
+```
+
+## 📊 Quality Assurance Strategy
+
+### BMad Quality Framework
+```yaml
+quality_framework:
+  validation_layers:
+    - framework_exclusivity: "Continuous BMad validation"
+    - pattern_compliance: "BMad pattern checking"
+    - code_quality: "BMad quality metrics"
+    - documentation_standards: "BMad doc validation"
+  
+  quality_metrics:
+    - bmad_compliance_score: "Target: 95%+"
+    - pattern_adherence: "Target: 90%+"
+    - documentation_coverage: "Target: 85%+"
+    - test_effectiveness: "Target: 80%+"
+```
+
+### BMad Testing Strategy
+```yaml
+testing_strategy:
+  unit_testing:
+    - framework: "BMad testing framework"
+    - patterns: "BMad test patterns"
+    - coverage: "BMad coverage requirements"
+  
+  integration_testing:
+    - bmad_integration: "BMad component testing"
+    - api_testing: "BMad API validation"
+    - workflow_testing: "BMad workflow validation"
+  
+  compliance_testing:
+    - framework_validation: "BMad exclusivity testing"
+    - pattern_validation: "BMad pattern compliance"
+    - documentation_validation: "BMad doc standards"
+```
+
+## 🔒 Security & Compliance
+
+### BMad Security Framework
+```yaml
+security_framework:
+  bmad_security_patterns:
+    - authentication: "BMad auth patterns"
+    - authorization: "BMad permission models"
+    - data_protection: "BMad data security"
+    - api_security: "BMad API security"
+  
+  compliance_requirements:
+    - bmad_compliance: "Continuous validation"
+    - audit_trail: "BMad audit patterns"
+    - reporting: "BMad compliance reporting"
+```
+
+## 📈 Success Criteria & Metrics
+
+### BMad Success Metrics
+```yaml
+success_metrics:
+  framework_metrics:
+    - bmad_exclusivity: "100% BMad framework usage"
+    - pattern_compliance: "95%+ BMad pattern adherence"
+    - integration_quality: "90%+ BMad integration score"
+  
+  project_metrics:
+    - functionality: "Agent capability completeness"
+    - performance: "BMad performance standards"
+    - maintainability: "BMad maintainability index"
+    - documentation: "BMad documentation quality"
+```
+
+### BMad Validation Criteria
+```yaml
+validation_criteria:
+  must_have:
+    - "100% BMad framework exclusivity"
+    - "All BMad patterns correctly implemented"
+    - "BMad documentation standards met"
+    - "BMad validation passing"
+  
+  should_have:
+    - "BMad optimization patterns applied"
+    - "BMad monitoring integrated"
+    - "BMad security patterns implemented"
+    - "BMad testing coverage adequate"
+```
+
+## 🚨 Risks & Mitigations
+
+### BMad-Specific Risks
+```yaml
+risks:
+  framework_risks:
+    - risk: "BMad framework learning curve"
+      probability: "Medium"
+      impact: "Medium"
+      mitigation: "BMad training and documentation"
+    
+    - risk: "BMad compatibility issues"
+      probability: "Low"
+      impact: "High"
+      mitigation: "Thorough BMad validation testing"
+  
+  compliance_risks:
+    - risk: "BMad compliance violations"
+      probability: "Low"
+      impact: "High"
+      mitigation: "Continuous BMad validation monitoring"
+```
+
+## 📅 Implementation Roadmap
+
+### BMad Implementation Phases
+```yaml
+implementation_phases:
+  phase_1:
+    - name: "BMad Foundation Setup"
+      duration: "[Time]"
+      deliverables: "BMad framework integration"
+      validation: "BMad compliance validation"
+  
+  phase_2:
+    - name: "Core Agent Development"
+      duration: "[Time]"
+      deliverables: "BMad-compliant agent"
+      validation: "BMad pattern validation"
+  
+  phase_3:
+    - name: "Integration & Testing"
+      duration: "[Time]"
+      deliverables: "Fully integrated BMad agent"
+      validation: "Comprehensive BMad validation"
+  
+  phase_4:
+    - name: "Deployment & Monitoring"
+      duration: "[Time]"
+      deliverables: "Production-ready BMad agent"
+      validation: "BMad production validation"
+```
+
+---
+
+## 📝 BMad Compliance Checklist
+
+### Pre-Development Validation
+- [ ] BMad framework properly installed and configured
+- [ ] BMad agents available and configured
+- [ ] BMad validation tools ready
+- [ ] BMad documentation templates prepared
+
+### Development Validation
+- [ ] Continuous BMad compliance checking enabled
+- [ ] BMad patterns correctly implemented
+- [ ] BMad quality gates configured
+- [ ] BMad testing framework integrated
+
+### Post-Development Validation
+- [ ] Comprehensive BMad validation completed
+- [ ] BMad compliance report generated
+- [ ] BMad documentation complete
+- [ ] BMad deployment validation passed
+
+---
+
+*This planning document follows BMad framework standards and should be continuously updated throughout the project lifecycle. All changes should maintain BMad framework exclusivity and compliance.*

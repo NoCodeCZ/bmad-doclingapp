@@ -1,0 +1,324 @@
+<!-- Powered by BMAD™ Core -->
+
+# AI Agent Task Management - [Agent Name]
+
+## 🎯 Current Sprint - BMad Framework
+
+### Active Tasks - [Sprint Name/Number]
+- [ ] **[Task Name]** - @bmad-dev - [Due Date]
+  - **BMad Pattern**: [Specific BMad pattern to apply]
+  - **Validation**: [BMad validation requirements]
+  - **Dependencies**: [BMad framework dependencies]
+  - **Acceptance Criteria**: [BMad compliance criteria]
+  - **Priority**: [High/Medium/Low]
+
+- [ ] **[Task Name]** - @bmad-qa - [Due Date]
+  - **BMad Pattern**: [Testing pattern requirements]
+  - **Validation**: [BMad testing validation]
+  - **Dependencies**: [Related development tasks]
+  - **Acceptance Criteria**: [BMad test coverage requirements]
+  - **Priority**: [High/Medium/Low]
+
+- [ ] **[Task Name]** - @bmad-architect - [Due Date]
+  - **BMad Pattern**: [Architectural pattern requirements]
+  - **Validation**: [BMad architecture validation]
+  - **Dependencies**: [Requirements and constraints]
+  - **Acceptance Criteria**: [BMad architecture compliance]
+  - **Priority**: [High/Medium/Low]
+
+### In Progress
+- [ ] **[Task Name]** - [BMad Agent] - [Started Date]
+  - **Progress**: [Current progress percentage]
+  - **BMad Compliance**: [Current compliance status]
+  - **Blockers**: [Any BMad-related blockers]
+  - **Next Steps**: [Immediate next actions]
+
+## 📋 Task Backlog - BMad Prioritized
+
+### High Priority - BMad Critical
+- [ ] **[Task Name]** - @bmad-dev - [Priority Score]
+  - **BMad Impact**: [Impact on BMad framework compliance]
+  - **Complexity**: [BMad complexity assessment]
+  - **Estimated Effort**: [Time/BMad story points]
+  - **BMad Requirements**: [Specific BMad requirements]
+
+- [ ] **[Task Name]** - @bmad-validation-agent - [Priority Score]
+  - **BMad Impact**: [Compliance validation importance]
+  - **Complexity**: [Validation complexity]
+  - **Estimated Effort**: [Validation effort]
+  - **BMad Requirements**: [Validation criteria]
+
+### Medium Priority - BMad Important
+- [ ] **[Task Name]** - [BMad Agent] - [Priority Score]
+  - **BMad Integration**: [Required BMad components]
+  - **Complexity**: [Implementation complexity]
+  - **Estimated Effort**: [Development effort]
+  - **BMad Requirements**: [Integration requirements]
+
+### Low Priority - BMad Enhancement
+- [ ] **[Task Name]** - [BMad Agent] - [Priority Score]
+  - **BMad Enhancement**: [BMad improvement opportunity]
+  - **Complexity**: [Enhancement complexity]
+  - **Estimated Effort**: [Enhancement effort]
+  - **BMad Requirements**: [Enhancement criteria]
+
+## ✅ Completed Tasks - BMad Validated
+
+### Current Sprint Completed
+- [x] **[Task Name]** - @bmad-dev - [Completion Date]
+  - **BMad Patterns Applied**: [Patterns implemented]
+  - **Compliance Score**: [BMad compliance rating]
+  - **Validation Results**: [BMad validation outcome]
+  - **Lessons Learned**: [BMad-specific insights]
+
+- [x] **[Task Name]** - @bmad-qa - [Completion Date]
+  - **BMad Test Coverage**: [Coverage percentage]
+  - **Compliance Score**: [Test compliance rating]
+  - **Validation Results**: [Test validation outcome]
+  - **Quality Metrics**: [BMad quality metrics]
+
+### Previous Sprints
+- [x] **[Task Name]** - [BMad Agent] - [Completion Date]
+  - **BMad Patterns**: [Successfully implemented patterns]
+  - **Compliance**: [Final compliance score]
+  - **Impact**: [BMad framework impact]
+
+## 🔍 Discovered During Work - BMad Context
+
+### New Requirements - BMad Impact
+- [ ] **[Requirement Description]** - [Discovery Date]
+  - **BMad Framework Impact**: [Assessment of impact on BMad]
+  - **Pattern Changes**: [Required BMad pattern changes]
+  - **Validation Needed**: [BMad validation requirements]
+  - **Priority**: [Assessment priority]
+  - **Source**: [How this was discovered]
+
+### Technical Debt - BMad Resolution
+- [ ] **[Technical Debt Item]** - [Identification Date]
+  - **BMad Pattern Violation**: [Which BMad pattern is affected]
+  - **Remediation Approach**: [BMad-compliant solution]
+  - **Estimated Effort**: [Remediation effort]
+  - **Priority**: [Remediation priority]
+  - **Risk Assessment**: [Risk if not addressed]
+
+### BMad Framework Issues
+- [ ] **[BMad Framework Issue]** - [Discovery Date]
+  - **Issue Description**: [Detailed description]
+  - **BMad Component**: [Affected BMad component]
+  - **Workaround**: [Current workaround if any]
+  - **Resolution Plan**: [BMad resolution approach]
+  - **Priority**: [Issue priority]
+
+## 📊 BMad Compliance Status
+
+### Current Compliance Metrics
+```yaml
+bmad_compliance:
+  framework_exclusivity:
+    current_score: [Current Score]%
+    target_score: 100%
+    trend: [Improving/Stable/Declining]
+    last_validation: [Date/Time]
+  
+  pattern_compliance:
+    current_score: [Current Score]%
+    target_score: 95%+
+    trend: [Improving/Stable/Declining]
+    last_validation: [Date/Time]
+  
+  documentation_standards:
+    current_score: [Current Score]%
+    target_score: 90%+
+    trend: [Improving/Stable/Declining]
+    last_validation: [Date/Time]
+  
+  code_quality:
+    current_score: [Current Score]%
+    target_score: 85%+
+    trend: [Improving/Stable/Declining]
+    last_validation: [Date/Time]
+```
+
+### Validation Results
+```yaml
+recent_validations:
+  - date: "[Date]"
+    type: "Framework Exclusivity"
+    score: [Score]%
+    issues: [Number of issues]
+    critical_issues: [Number]
+    
+  - date: "[Date]"
+    type: "Pattern Compliance"
+    score: [Score]%
+    issues: [Number of issues]
+    critical_issues: [Number]
+    
+  - date: "[Date]"
+    type: "Documentation Standards"
+    score: [Score]%
+    issues: [Number of issues]
+    critical_issues: [Number]
+```
+
+### Compliance Actions Required
+- [ ] **[Action Item]** - [Due Date]
+  - **BMad Component**: [Affected component]
+  - **Priority**: [Action priority]
+  - **Owner**: [BMad agent responsible]
+  - **Validation Required**: [Post-action validation]
+
+## 👥 BMad Agent Assignments
+
+### Primary Development Team
+```yaml
+development_agents:
+  bmad-dev:
+    current_tasks: [Number of active tasks]
+    focus_areas: [Primary focus areas]
+    upcoming_tasks: [Next assigned tasks]
+    capacity: [Current capacity]
+    
+  bmad-architect:
+    current_tasks: [Number of active tasks]
+    focus_areas: [Architecture focus]
+    upcoming_tasks: [Next architecture tasks]
+    capacity: [Current capacity]
+```
+
+### Quality & Validation Team
+```yaml
+quality_agents:
+  bmad-qa:
+    current_tasks: [Number of active tasks]
+    focus_areas: [Testing focus areas]
+    upcoming_tasks: [Next testing tasks]
+    capacity: [Current capacity]
+    
+  bmad-validation-agent:
+    current_tasks: [Number of active tasks]
+    focus_areas: [Validation focus areas]
+    upcoming_tasks: [Next validation tasks]
+    capacity: [Current capacity]
+```
+
+### Support Agents
+```yaml
+support_agents:
+  bmad-orchestrator:
+    availability: [When to engage]
+    responsibilities: [Orchestration responsibilities]
+    
+  bmad-master:
+    availability: [When to engage]
+    responsibilities: [Master task execution]
+```
+
+## 📈 Sprint Progress Tracking
+
+### Current Sprint Metrics
+```yaml
+sprint_metrics:
+  total_tasks: [Total number of tasks]
+  completed_tasks: [Number completed]
+  in_progress_tasks: [Number in progress]
+  blocked_tasks: [Number blocked]
+  
+  bmad_compliance_average: [Average compliance score]
+  quality_score: [Current quality score]
+  velocity: [Story points completed]
+  
+  burndown:
+    planned: [Planned story points]
+    completed: [Completed story points]
+    remaining: [Remaining story points]
+```
+
+### Sprint Goals - BMad Aligned
+- [ ] **[Sprint Goal 1]** - [Progress percentage]
+  - **BMad Alignment**: [How this aligns with BMad goals]
+  - **Success Criteria**: [BMad success criteria]
+  - **Status**: [On Track/At Risk/Behind]
+
+- [ ] **[Sprint Goal 2]** - [Progress percentage]
+  - **BMad Alignment**: [BMad goal alignment]
+  - **Success Criteria**: [BMad success criteria]
+  - **Status**: [On Track/At Risk/Behind]
+
+## 🚨 Blockers and Impediments
+
+### Current Blockers
+- [ ] **[Blocker Description]** - [Date Identified]
+  - **BMad Impact**: [Impact on BMad compliance]
+  - **Severity**: [Critical/High/Medium/Low]
+  - **Owner**: [Who is resolving]
+  - **ETA**: [Estimated resolution time]
+  - **Mitigation**: [Current mitigation strategy]
+
+### Resolved Blockers
+- [x] **[Resolved Blocker]** - [Resolution Date]
+  - **Resolution**: [How it was resolved]
+  - **BMad Impact**: [Impact on compliance]
+  - **Lessons Learned**: [BMad-specific lessons]
+
+## 📅 Upcoming Milestones
+
+### BMad Milestones
+- [ ] **[Milestone Name]** - [Target Date]
+  - **BMad Requirements**: [BMad compliance requirements]
+  - **Deliverables**: [BMad-aligned deliverables]
+  - **Validation Required**: [BMad validation needed]
+  - **Success Criteria**: [BMad success criteria]
+
+- [ ] **[Milestone Name]** - [Target Date]
+  - **BMad Requirements**: [BMad compliance requirements]
+  - **Deliverables**: [BMad-aligned deliverables]
+  - **Validation Required**: [BMad validation needed]
+  - **Success Criteria**: [BMad success criteria]
+
+## 🔄 Process Improvements - BMad Framework
+
+### BMad Process Enhancements
+- [ ] **[Improvement Area]** - [Proposed Date]
+  - **Current Process**: [Current BMad process]
+  - **Proposed Improvement**: [BMad-compliant improvement]
+  - **Expected Benefit**: [BMad framework benefit]
+  - **Implementation Effort**: [Effort required]
+  - **Priority**: [Improvement priority]
+
+### BMad Tool Improvements
+- [ ] **[Tool Enhancement]** - [Proposed Date]
+  - **Current Tool**: [Current BMad tool]
+  - **Enhancement Needed**: [BMad enhancement]
+  - **Expected Benefit**: [Tool improvement benefit]
+  - **Implementation Effort**: [Effort required]
+  - **Priority**: [Enhancement priority]
+
+---
+
+## 📝 Task Management Guidelines - BMad Framework
+
+### Task Creation Rules
+1. **All tasks must include BMad alignment**
+2. **Specify BMad patterns to be applied**
+3. **Include BMad validation requirements**
+4. **Assign appropriate BMad agents**
+5. **Define BMad compliance criteria**
+
+### Task Updates Rules
+1. **Update BMad compliance status with each change**
+2. **Record BMad pattern usage**
+3. **Document BMad validation results**
+4. **Track BMad framework impact**
+5. **Maintain BMad documentation standards**
+
+### Task Completion Rules
+1. **Validate 100% BMad framework compliance**
+2. **Ensure all BMad patterns are correctly implemented**
+3. **Complete BMad documentation requirements**
+4. **Pass BMad quality gates**
+5. **Update BMad compliance metrics**
+
+---
+
+*This task management document follows BMad framework standards and should be updated continuously throughout the project lifecycle. All tasks must maintain BMad framework exclusivity and compliance.*

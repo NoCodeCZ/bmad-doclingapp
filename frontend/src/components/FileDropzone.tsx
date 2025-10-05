@@ -5,9 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Checkbox } from '@/components/ui/checkbox';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
+import { ProcessingOptions as ProcessingOptionsComponent } from '@/components/ProcessingOptions';
 import { cn } from '@/lib/utils';
 import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from '@/lib/validation';
 import { ProcessingOptions, DocumentUpload } from '@/types/database';
@@ -210,60 +208,13 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
 
       {/* Processing Options */}
       {!isUploading && (
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <h3 className="text-lg font-medium">Processing Options</h3>
-            
-            {/* OCR Toggle */}
-            <div className="flex items-start space-x-3">
-              <Checkbox
-                id="ocr"
-                checked={ocrEnabled}
-                onCheckedChange={(checked) => setOcrEnabled(checked as boolean)}
-              />
-              <div className="space-y-1">
-                <Label htmlFor="ocr" className="font-medium">
-                  Enable OCR for scanned documents
-                </Label>
-                <p className="text-sm text-muted-foreground">
-                  Use this option for PDFs that contain scanned images or text that can&apos;t be selected
-                </p>
-              </div>
-            </div>
-
-            {/* Processing Mode */}
-            <div className="space-y-3">
-              <Label className="font-medium">Processing Mode</Label>
-              <RadioGroup
-                value={processingMode}
-                onValueChange={(value) => setProcessingMode(value as 'fast' | 'quality')}
-              >
-                <div className="flex items-start space-x-3">
-                  <RadioGroupItem value="fast" id="fast" />
-                  <div className="space-y-1">
-                    <Label htmlFor="fast" className="font-medium">
-                      Fast
-                    </Label>
-                    <p className="text-sm text-muted-foreground">
-                      Quick processing (~30 seconds). Best for text-heavy documents.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <RadioGroupItem value="quality" id="quality" />
-                  <div className="space-y-1">
-                    <Label htmlFor="quality" className="font-medium">
-                      Quality
-                    </Label>
-                    <p className="text-sm text-muted-foreground">
-                      Thorough processing (~2 minutes). Better for complex layouts and images.
-                    </p>
-                  </div>
-                </div>
-              </RadioGroup>
-            </div>
-          </CardContent>
-        </Card>
+        <ProcessingOptionsComponent
+          ocrEnabled={ocrEnabled}
+          processingMode={processingMode}
+          onOcrEnabledChange={setOcrEnabled}
+          onProcessingModeChange={setProcessingMode}
+          disabled={isUploading}
+        />
       )}
 
       {/* Upload Progress */}

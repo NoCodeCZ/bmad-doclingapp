@@ -20,6 +20,13 @@ async def upload_document(
 ):
     """Upload a document for processing."""
     try:
+        # Validate processing mode
+        if processing_mode not in ["fast", "quality"]:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid processing mode: {processing_mode}. Must be 'fast' or 'quality'"
+            )
+        
         # Validate file type
         if file.content_type not in settings.ALLOWED_FILE_TYPES:
             raise HTTPException(
