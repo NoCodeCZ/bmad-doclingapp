@@ -91,8 +91,9 @@ class DocumentStatusResponse(BaseModel):
     created_at: datetime
     completed_at: Optional[datetime] = None
     error_message: Optional[str] = None
-    progress_stage: Optional[str] = None
-    elapsed_time: Optional[int] = None
+    progress_stage: Optional[str] = None  # Human-readable stage description
+    elapsed_time: Optional[int] = None  # Seconds since creation
+    progress: int = Field(default=0, ge=0, le=100)  # Progress percentage 0-100
     download_url: Optional[str] = None
 
     class Config:
