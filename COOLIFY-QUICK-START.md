@@ -26,8 +26,8 @@
 
 ### Environment Variables (Runtime)
 ```bash
-SUPABASE_URL=https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-SUPABASE_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.EnOpR72H05QVdHsjZPsw2IC3vSnOUcwOWd8MreYffR4
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your-service-role-key-here
 MAX_FILE_SIZE=52428800
 PROCESSING_TIMEOUT=600
 ALLOWED_ORIGINS=https://YOUR-FRONTEND-DOMAIN.com
@@ -76,8 +76,8 @@ curl https://api-docling.yourdomain.com/api/health
 In Coolify, look for "Build Arguments" or "Build Variables" section:
 
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoiYW5vbiJ9.9N2FNNrBisKwF-AIj-jdeB4pGRNNBol-kXTNL3RCBFY
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 NEXT_PUBLIC_API_URL=https://api-docling.yourdomain.com
 ```
 
@@ -154,9 +154,9 @@ If Coolify doesn't allow setting build args separately, the Dockerfile has safe 
 
 **Frontend**: Has defaults in Dockerfile (line 14-16):
 ```dockerfile
-ARG NEXT_PUBLIC_SUPABASE_URL=https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-ARG NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoiYW5vbiJ9.9N2FNNrBisKwF-AIj-jdeB4pGRNNBol-kXTNL3RCBFY
-ARG NEXT_PUBLIC_API_URL=http://backend:8080
+ARG NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+ARG NEXT_PUBLIC_API_URL=/api
 ```
 
 **BUT** you MUST update `NEXT_PUBLIC_API_URL` default to match your backend domain!
@@ -200,7 +200,7 @@ User Browser
     ↓
     ↓ HTTPS
     ↓
-[Supabase: supabasekong...]
+[Supabase: your-project.supabase.co]
 ```
 
 **Important**: Frontend and backend are separate services. Browser makes API calls directly to backend.

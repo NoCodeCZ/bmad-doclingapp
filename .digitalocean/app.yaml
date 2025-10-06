@@ -1,8 +1,7 @@
 # DigitalOcean App Platform Configuration
 # Workshop Document Processor - Staging Environment
 #
-# Note: This configuration uses a self-hosted Supabase instance via Coolify
-# Supabase URL: https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
+# Note: Configure Supabase credentials via environment variables
 
 name: workshop-doc-processor-staging
 region: nyc3
@@ -27,10 +26,10 @@ services:
         value: ${backend.PUBLIC_URL}
         type: SECRET
       - key: NEXT_PUBLIC_SUPABASE_URL
-        value: https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
+        value: https://your-project.supabase.co
         type: SECRET
       - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
-        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoiYW5vbiJ9.9N2FNNrBisKwF-AIj-jdeB4pGRNNBol-kXTNL3RCBFY
+        value: your-anon-key-here
         type: SECRET
       - key: NODE_ENV
         value: production
@@ -71,10 +70,10 @@ services:
     # Environment
     envs:
       - key: SUPABASE_URL
-        value: https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
+        value: https://your-project.supabase.co
         type: SECRET
       - key: SUPABASE_KEY
-        value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.EnOpR72H05QVdHsjZPsw2IC3vSnOUcwOWd8MreYffR4
+        value: your-service-role-key-here
         type: SECRET
       - key: MAX_FILE_SIZE
         value: "10485760"

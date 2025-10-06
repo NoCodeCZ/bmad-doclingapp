@@ -30,7 +30,7 @@ Both services are deployed as separate containers on DigitalOcean App Platform w
 If you're already running a self-hosted Supabase instance:
 
 1. **Access Your Supabase Instance**
-   - Example URL: `https://supabasekong-xxx.app.thit.io/`
+   - Example URL: `https://your-project.supabase.co`
    - Login to your Coolify dashboard or Supabase admin panel
 
 2. **Run Database Migration**

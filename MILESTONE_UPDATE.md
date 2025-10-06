@@ -17,7 +17,7 @@ Successfully completed Story 0.1: Supabase Configuration & Smoke Test. Applicati
 - ⚠️ Storage Upload: Non-blocking MIME type test issue (test used text/plain, bucket configured for PDF/DOCX/PPTX/XLSX - production files will work)
 
 ### Supabase Configuration Complete
-- **Instance URL**: `https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/`
+- **Instance URL**: (configured via environment variables)
 - **Database**: PostgreSQL with RLS enabled
 - **Schema**: `documents` table with indexes, triggers, and RLS policies
 - **Storage**: Two buckets configured with proper MIME restrictions

@@ -7,9 +7,9 @@ Before debugging, verify these are set up correctly in Coolify:
 ### 1. Environment Variables (in Coolify)
 Make sure these are set:
 ```
-SUPABASE_URL=https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-SUPABASE_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.EnOpR72H05QVdHsjZPsw2IC3vSnOUcwOWd8MreYffR4
-SUPABASE_ANON_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoiYW5vbiJ9.9N2FNNrBisKwF-AIj-jdeB4pGRNNBol-kXTNL3RCBFY
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_KEY=your-service-role-key-here
+SUPABASE_ANON_KEY=your-anon-key-here
 MAX_FILE_SIZE=52428800
 PROCESSING_TIMEOUT=600
 ENVIRONMENT=production
@@ -19,7 +19,7 @@ ENVIRONMENT=production
 
 **CRITICAL:** You need to create the storage buckets in Supabase!
 
-1. Go to: https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
+1. Go to your Supabase project dashboard
 2. Navigate to **Storage** in the left sidebar
 3. Create two buckets:
    - **uploads** (for uploaded files)
@@ -141,7 +141,7 @@ Expected responses:
 ## Quick Fixes
 
 ### If buckets are missing:
-1. Log into Supabase: https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
+1. Log into your Supabase dashboard
 2. Go to **Storage**
 3. Click **New bucket**
 4. Create `uploads` (private)

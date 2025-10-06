@@ -17,7 +17,7 @@ Frontend: https://docling.yourdomain.com (Port 3000)
     ↓
 Backend: https://api-docling.yourdomain.com (Port 8080)
     ↓
-Supabase: https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
+Supabase: https://your-project.supabase.co
 ```
 
 ---
@@ -36,8 +36,8 @@ Supabase: https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
 
 2. **Environment Variables**
    ```bash
-   SUPABASE_URL=https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-   SUPABASE_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.EnOpR72H05QVdHsjZPsw2IC3vSnOUcwOWd8MreYffR4
+   SUPABASE_URL=https://your-project.supabase.co
+   SUPABASE_KEY=your-service-role-key-here
    MAX_FILE_SIZE=52428800
    PROCESSING_TIMEOUT=600
    ALLOWED_ORIGINS=https://docling.yourdomain.com
@@ -70,8 +70,8 @@ Supabase: https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
 
    In Coolify, go to **Build Variables** (not Runtime Variables):
    ```bash
-   NEXT_PUBLIC_SUPABASE_URL=https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoiYW5vbiJ9.9N2FNNrBisKwF-AIj-jdeB4pGRNNBol-kXTNL3RCBFY
+   NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
    NEXT_PUBLIC_API_URL=https://api-docling.yourdomain.com
    ```
 

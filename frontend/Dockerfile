@@ -10,9 +10,9 @@ RUN npm install --frozen-lockfile || npm install
 # Copy source code
 COPY . .
 
-# Accept build arguments with defaults (these are public env vars, safe to hardcode)
-ARG NEXT_PUBLIC_SUPABASE_URL=https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-ARG NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoiYW5vbiJ9.9N2FNNrBisKwF-AIj-jdeB4pGRNNBol-kXTNL3RCBFY
+# Accept build arguments (set these in your deployment platform)
+ARG NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 ARG NEXT_PUBLIC_API_URL=/api
 
 # Set as environment variables for build

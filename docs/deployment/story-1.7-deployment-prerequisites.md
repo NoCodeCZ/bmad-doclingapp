@@ -75,7 +75,7 @@ git push origin main
 > **Note**: If you're using a self-hosted Supabase instance via Coolify (as currently configured), verify the following setup. For managed Supabase Cloud users, see the deployment guide for alternative instructions.
 
 **Current Configuration (Self-Hosted):**
-- Supabase URL: `https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/`
+- Supabase URL: (configured via environment variables)
 - Using service role key for backend authentication
 
 **Verification Steps:**
@@ -133,8 +133,8 @@ git push origin main
    **Environment Variables:**
    ```
    NEXT_PUBLIC_API_URL = ${backend.PUBLIC_URL}
-   NEXT_PUBLIC_SUPABASE_URL = https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-   NEXT_PUBLIC_SUPABASE_ANON_KEY = eyJxxx... (your anon key from Supabase)
+   NEXT_PUBLIC_SUPABASE_URL = https://your-project.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY = your-anon-key-here
    NODE_ENV = production
    ```
    
@@ -149,8 +149,8 @@ git push origin main
    
    **Environment Variables:**
    ```
-   SUPABASE_URL = https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/
-   SUPABASE_KEY = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc1OTMyNjAwMCwiZXhwIjo0OTE0OTk5NjAwLCJyb2xlIjoic2VydmljZV9yb2xlIn0.EnOpR72H05QVdHsjZPsw2IC3vSnOUcwOWd8MreYffR4
+   SUPABASE_URL = https://your-project.supabase.co
+   SUPABASE_KEY = your-service-role-key-here
    MAX_FILE_SIZE = 10485760
    PROCESSING_TIMEOUT = 300
    ALLOWED_ORIGINS = ${frontend.PUBLIC_URL}
@@ -302,9 +302,8 @@ git push origin main
 
 ### Configuration Files
 - [`.digitalocean/app.yaml`](../.digitalocean/app.yaml:1) - App Platform specification
-  - **Note**: Update `NEXT_PUBLIC_SUPABASE_ANON_KEY` with your actual anon key from Supabase Settings → API
-  - Self-hosted Supabase URL is already configured: `https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/`
-  - Backend service role key is already configured
+  - **Note**: Update environment variables with your actual Supabase credentials from Settings → API
+  - Configure both anon key (for frontend) and service role key (for backend)
 
 ### Documentation
 - [`docs/deployment-guide.md`](deployment-guide.md:1) - Complete deployment guide (updated for self-hosted Supabase)

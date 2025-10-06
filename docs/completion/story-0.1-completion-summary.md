@@ -38,8 +38,8 @@
 
 ## Configuration Details
 
-**Supabase Instance**: 
-- URL: `https://supabasekong-pgg8kss0oc08oo0gokgossog.app.thit.io/`
+**Supabase Instance**:
+- URL: (configured via environment variables)
 - Service Key: Configured ✓
 - Database: PostgreSQL with RLS enabled ✓
 - Storage: 2 buckets configured ✓
