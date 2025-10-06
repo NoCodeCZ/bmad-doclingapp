@@ -19,19 +19,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  // Only configure rewrites if API URL is available (runtime, not build time)
-  async rewrites() {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    if (!apiUrl) {
-      return [];
-    }
-    return [
-      {
-        source: '/api/:path*',
-        destination: `${apiUrl}/api/:path*`,
-      },
-    ];
-  },
+  // Rewrites disabled - using Nginx reverse proxy for routing
+  // Frontend calls /api/* which Nginx proxies to backend container
 };
 
 module.exports = nextConfig;
