@@ -39,6 +39,13 @@ vi.mock('lucide-react', () => ({
   Loader2: vi.fn(() => React.createElement('div', { 'data-testid': 'loader-icon' }, 'Loader')),
   Check: vi.fn(() => React.createElement('div', { 'data-testid': 'check-icon' }, 'Check')),
   Circle: vi.fn(() => React.createElement('div', { 'data-testid': 'circle-icon' }, 'Circle')),
+  AlertTriangle: vi.fn(() => React.createElement('svg', { 'data-testid': 'alert-triangle-icon' }, 'AlertTriangle')),
+  CheckCircle2: vi.fn(() => React.createElement('svg', { 'data-testid': 'check-circle-icon' }, 'CheckCircle2')),
+  Clock: vi.fn(() => React.createElement('svg', { 'data-testid': 'clock-icon' }, 'Clock')),
+  FileCheck: vi.fn(() => React.createElement('svg', { 'data-testid': 'file-check-icon' }, 'FileCheck')),
+  Download: vi.fn(() => React.createElement('svg', { 'data-testid': 'download-icon' }, 'Download')),
+  FileText: vi.fn(() => React.createElement('svg', { 'data-testid': 'file-text-icon' }, 'FileText')),
+  RefreshCw: vi.fn(() => React.createElement('svg', { 'data-testid': 'refresh-icon' }, 'RefreshCw')),
 }));
 
 // Mock Supabase

@@ -5,10 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { ErrorAlert } from '@/components/ErrorAlert';
 import { ProcessingOptions as ProcessingOptionsComponent } from '@/components/ProcessingOptions';
 import { cn } from '@/lib/utils';
 import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE } from '@/lib/validation';
 import { ProcessingOptions, DocumentUpload } from '@/types/database';
+import { useErrorHandler } from '@/hooks/useErrorHandler';
 
 interface FileDropzoneProps {
   onFileUpload: (file: File, options: ProcessingOptions) => Promise<void>;
@@ -28,6 +30,9 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
   const [processingMode, setProcessingMode] = useState<'fast' | 'quality'>('fast');
   const [validationError, setValidationError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Enhanced error handling (AC 7)
+  const { error: uploadError, setError, clearError } = useErrorHandler();
 
   const onDrop = useCallback(
     (acceptedFiles: File[], rejectedFiles: any[]) => {
@@ -90,6 +95,7 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
   const handleRemoveFile = () => {
     setSelectedFile(null);
     setValidationError(null);
+    clearError();
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -97,17 +103,32 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
 
   const handleUpload = async () => {
     if (!selectedFile) return;
-    
+
     const options: ProcessingOptions = {
       ocr_enabled: ocrEnabled,
       processing_mode: processingMode,
     };
-    
+
     try {
+      clearError();
       await onFileUpload(selectedFile, options);
     } catch (err) {
-      // Error is handled by parent component
-      console.error('Upload failed:', err);
+      // Set structured error for display (AC 7)
+      const errorMessage = err instanceof Error ? err.message : 'Upload failed - please try again.';
+      setError({
+        code: 'UPLOAD_ERROR',
+        message: errorMessage,
+      });
+    }
+  };
+
+  // Retry handler (AC 7)
+  const handleRetry = () => {
+    clearError();
+    setValidationError(null);
+    setSelectedFile(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
     }
   };
 
@@ -136,14 +157,14 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6">
+    <div className="w-full px-4 md:px-0 md:max-w-2xl mx-auto space-y-4 md:space-y-6">
       {/* Upload Area */}
       <Card>
-        <CardContent className="p-6">
+        <CardContent className="p-4 md:p-6">
           <div
             {...getRootProps()}
             className={cn(
-              "border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors",
+              "border-2 border-dashed rounded-lg p-6 md:p-8 text-center cursor-pointer transition-colors",
               isDragActive && "border-primary bg-primary/5",
               isDragAccept && "border-green-500 bg-green-50 dark:bg-green-950",
               isDragReject && "border-red-500 bg-red-50 dark:bg-red-950",
@@ -153,18 +174,18 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
             onClick={handleFileSelect}
           >
             <input {...getInputProps()} ref={fileInputRef} />
-            
-            <div className="flex flex-col items-center space-y-4">
+
+            <div className="flex flex-col items-center space-y-3 md:space-y-4">
               {isUploading ? (
-                <Loader2 className="h-12 w-12 animate-spin text-primary" />
+                <Loader2 className="h-10 w-10 md:h-12 md:w-12 animate-spin text-primary" />
               ) : (
-                <Upload className="h-12 w-12 text-gray-400" />
+                <Upload className="h-10 w-10 md:h-12 md:w-12 text-gray-400" />
               )}
-              
-              <div className="space-y-2">
-                <p className="text-lg font-medium">
-                  {isUploading 
-                    ? 'Uploading...' 
+
+              <div className="space-y-1 md:space-y-2">
+                <p className="text-base md:text-lg font-medium">
+                  {isUploading
+                    ? 'Uploading...'
                     : isDragActive
                       ? 'Drop your document here'
                       : 'Drag your document here or click to browse'
@@ -182,12 +203,12 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
       {/* File Preview */}
       {selectedFile && !isUploading && (
         <Card>
-          <CardContent className="p-6">
+          <CardContent className="p-4 md:p-6">
             <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <span className="text-2xl">{getFileIcon(selectedFile)}</span>
-                <div>
-                  <p className="font-medium">{selectedFile.name}</p>
+              <div className="flex items-center space-x-3 min-w-0 flex-1">
+                <span className="text-2xl flex-shrink-0">{getFileIcon(selectedFile)}</span>
+                <div className="min-w-0 flex-1">
+                  <p className="font-medium truncate">{selectedFile.name}</p>
                   <p className="text-sm text-muted-foreground">
                     {formatFileSize(selectedFile.size)}
                   </p>
@@ -198,6 +219,7 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
                 size="icon"
                 onClick={handleRemoveFile}
                 disabled={isUploading}
+                className="flex-shrink-0 min-w-[44px] min-h-[44px]"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -220,24 +242,28 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
       {/* Upload Progress */}
       {isUploading && (
         <Card>
-          <CardContent className="p-6 space-y-4">
+          <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium">Uploading {selectedFile?.name}</span>
-              <span className="text-sm text-muted-foreground">{uploadProgress}%</span>
+              <span className="text-sm font-medium truncate mr-2">Uploading {selectedFile?.name}</span>
+              <span className="text-sm text-muted-foreground flex-shrink-0">{uploadProgress}%</span>
             </div>
             <Progress value={uploadProgress} className="w-full" />
           </CardContent>
         </Card>
       )}
 
-      {/* Error Messages */}
-      {validationError && (
+      {/* Enhanced Error Display (AC 1, AC 7) */}
+      {uploadError && (
+        <ErrorAlert error={uploadError} onRetry={handleRetry} />
+      )}
+
+      {validationError && !uploadError && (
         <Alert variant="destructive">
           <AlertDescription>{validationError}</AlertDescription>
         </Alert>
       )}
-      
-      {error && (
+
+      {error && !uploadError && (
         <Alert variant="destructive">
           <AlertDescription>{error}</AlertDescription>
         </Alert>
@@ -245,9 +271,9 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
 
       {/* Upload Button */}
       {selectedFile && !isUploading && (
-        <Button 
-          onClick={handleUpload} 
-          className="w-full" 
+        <Button
+          onClick={handleUpload}
+          className="w-full min-h-[44px]"
           size="lg"
           disabled={!selectedFile || isUploading}
         >

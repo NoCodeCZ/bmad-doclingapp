@@ -102,6 +102,12 @@ export default function ProcessingPage({ params, searchParams }: ProcessingPageP
     );
   }
 
+  // Handle reset to upload screen
+  const handleReset = () => {
+    stopPolling();
+    router.push('/');
+  };
+
   return (
     <main
       className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
@@ -130,17 +136,21 @@ export default function ProcessingPage({ params, searchParams }: ProcessingPageP
           processingMode={processingMode}
           ocrEnabled={ocrEnabled}
           progressStage={status.progress_stage}
+          documentId={params.id}
+          onReset={handleReset}
         />
 
-        {/* Processing info footer */}
-        <div className="mt-6 text-center text-xs text-muted-foreground">
-          <p>Document ID: {params.id}</p>
-          {status.elapsed_time !== undefined && (
-            <p className="mt-1">
-              Elapsed time: {Math.floor(status.elapsed_time / 60)}m {status.elapsed_time % 60}s
-            </p>
-          )}
-        </div>
+        {/* Processing info footer - hide on complete status */}
+        {status.status !== 'complete' && (
+          <div className="mt-6 text-center text-xs text-muted-foreground">
+            <p>Document ID: {params.id}</p>
+            {status.elapsed_time !== undefined && (
+              <p className="mt-1">
+                Elapsed time: {Math.floor(status.elapsed_time / 60)}m {status.elapsed_time % 60}s
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </main>
   );

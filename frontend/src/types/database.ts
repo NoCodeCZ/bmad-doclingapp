@@ -3,7 +3,7 @@
  * Generated types for the documents table and related structures
  */
 
-export type DocumentStatus = 'queued' | 'processing' | 'complete' | 'failed';
+export type DocumentStatus = 'uploading' | 'queued' | 'processing' | 'finalizing' | 'complete' | 'failed';
 
 export type ProcessingMode = 'fast' | 'quality';
 

@@ -5,6 +5,7 @@ import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { cn } from '@/lib/utils';
 import { DocumentStatus } from '@/types/database';
+import { SuccessScreen } from '@/components/SuccessScreen';
 
 interface ProcessingCardProps {
   status: DocumentStatus;
@@ -15,6 +16,9 @@ interface ProcessingCardProps {
   processingMode?: 'fast' | 'quality';
   ocrEnabled?: boolean;
   progressStage?: string;
+  documentId?: string;
+  fileSize?: number;
+  onReset?: () => void;
 }
 
 export const ProcessingCard: React.FC<ProcessingCardProps> = ({
@@ -26,7 +30,30 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({
   processingMode = 'fast',
   ocrEnabled = false,
   progressStage,
+  documentId,
+  fileSize,
+  onReset,
 }) => {
+  // Show SuccessScreen when processing is complete
+  if (status === 'complete' && documentId) {
+    const handleReset = () => {
+      if (onReset) {
+        onReset();
+      } else {
+        // Default: redirect to home page
+        window.location.href = '/';
+      }
+    };
+
+    return (
+      <SuccessScreen
+        documentId={documentId}
+        filename={filename}
+        fileSize={fileSize}
+        onReset={handleReset}
+      />
+    );
+  }
   /**
    * Get animated status icon with visual differentiation per stage
    * - Uploading: Blue pulse animation
@@ -122,31 +149,31 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({
   };
 
   return (
-    <Card className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto transition-all duration-300">
-      <CardHeader className="text-center">
-        <div className="flex justify-center mb-4 transition-transform duration-300 hover:scale-105">
+    <Card className="w-full px-4 md:px-0 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto transition-all duration-300">
+      <CardHeader className="text-center p-4 md:p-6">
+        <div className="flex justify-center mb-3 md:mb-4 transition-transform duration-300 hover:scale-105">
           {getStatusIcon()}
         </div>
-        <CardTitle className="text-lg sm:text-xl transition-all duration-300">
+        <CardTitle className="text-base md:text-lg lg:text-xl transition-all duration-300">
           {getStatusText()}
         </CardTitle>
-        <p className="text-xs sm:text-sm text-muted-foreground truncate px-4">
+        <p className="text-sm md:text-base text-muted-foreground break-words px-2 md:px-4">
           {filename}
         </p>
       </CardHeader>
 
-      <CardContent className="space-y-4 sm:space-y-6">
+      <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6">
         {/* Progress Bar with smooth animations */}
         {(status === 'processing' || status === 'queued') && (
           <div className="space-y-2 transition-all duration-300">
-            <div className="flex justify-between text-xs sm:text-sm">
+            <div className="flex justify-between text-sm md:text-base">
               <span className="font-medium">Progress</span>
               <span className="font-semibold tabular-nums">{progress}%</span>
             </div>
             <Progress
               value={progress}
               className={cn(
-                "w-full h-2 sm:h-3 transition-all duration-300",
+                "w-full h-3 md:h-4 transition-all duration-300",
                 // Add gradient based on status/stage
                 progressStage?.toLowerCase().includes('uploading') && "bg-blue-100",
                 progressStage?.toLowerCase().includes('finalizing') && "bg-amber-100",
@@ -164,14 +191,14 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({
           status === 'processing' && 'border-amber-500 bg-amber-50 dark:bg-amber-950',
           status === 'queued' && 'border-blue-500 bg-blue-50 dark:bg-blue-950'
         )}>
-          <AlertDescription className="text-xs sm:text-sm">
+          <AlertDescription className="text-sm md:text-base break-words">
             {getStatusDescription()}
           </AlertDescription>
         </Alert>
 
         {/* Estimated Time with smooth fade-in */}
         {status === 'processing' && estimatedTime !== undefined && estimatedTime > 0 && (
-          <div className="text-center text-xs sm:text-sm text-muted-foreground animate-in fade-in duration-300">
+          <div className="text-center text-sm md:text-base text-muted-foreground animate-in fade-in duration-300">
             <span className="font-medium">Estimated time remaining:</span>{' '}
             <span className="font-semibold text-amber-600 dark:text-amber-400 tabular-nums">
               {formatTime(estimatedTime)}
@@ -181,7 +208,7 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({
 
         {/* Processing Options Display */}
         {(status === 'processing' || status === 'queued') && (
-          <div className="text-center text-xs sm:text-sm text-muted-foreground space-y-1 transition-opacity duration-300">
+          <div className="text-center text-sm md:text-base text-muted-foreground space-y-1 transition-opacity duration-300">
             <div>
               Mode: <span className="font-medium text-foreground">{processingMode === 'fast' ? 'Fast' : 'Quality'}</span>
             </div>

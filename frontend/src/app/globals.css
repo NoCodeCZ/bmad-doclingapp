@@ -53,6 +53,25 @@
   * {
     @apply border-border;
   }
+
+  /* Responsive Typography System */
+  html {
+    font-size: 16px; /* Base size for mobile - prevents iOS zoom on input focus */
+    line-height: 1.5;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 17px; /* Tablet */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 18px; /* Desktop */
+    }
+  }
+
   body {
     @apply bg-background text-foreground;
   }
