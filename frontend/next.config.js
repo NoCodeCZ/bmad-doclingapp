@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Add for Docker deployment
+  output: 'standalone',
+  
   experimental: {
     appDir: true,
+    // Increase body size limit
+    serverActions: {
+      bodySizeLimit: '50mb'
+    }
   },
   typescript: {
     // !! WARN !!

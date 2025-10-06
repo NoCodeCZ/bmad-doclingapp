@@ -207,7 +207,14 @@ Once the backend is running, visit http://localhost:8000/docs for interactive AP
 
 ## Deployment
 
-### DigitalOcean App Platform
+### Option 1: Coolify (Recommended)
+See [Coolify Deployment Guide](docs/deployment/coolify-deployment.md) for detailed instructions on deploying with Docker Compose. This option offers:
+- **Cost**: $0/month (uses your infrastructure)
+- **Setup**: ~1.5 hours
+- **Features**: Auto SSL, monitoring, health checks
+- **File Size**: Up to 50MB uploads
+
+### Option 2: DigitalOcean App Platform
 
 1. Connect your repository to DigitalOcean App Platform
 2. Configure two services:
@@ -215,6 +222,8 @@ Once the backend is running, visit http://localhost:8000/docs for interactive AP
    - **Backend**: Build command `pip install -r requirements.txt`, Run command `uvicorn app.main:app --host 0.0.0.0 --port 8080`
 3. Set environment variables in DigitalOcean dashboard
 4. Deploy!
+
+**Note**: DigitalOcean deployment supports 10MB file uploads by default. Use Coolify for 50MB support.
 
 ## Contributing
 

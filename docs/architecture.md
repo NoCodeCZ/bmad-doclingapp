@@ -572,7 +572,27 @@ PROCESSING_TIMEOUT=300
 
 ## Deployment Architecture
 
-### DigitalOcean App Platform
+### Option 1: Coolify with Docker Compose (Recommended)
+
+**Container Architecture:**
+- Frontend: Next.js container with standalone output
+- Backend: FastAPI container with health checks
+- Volume: Persistent storage for file uploads
+- Network: Internal container communication
+
+**Resource Allocation:**
+- Backend: 2GB RAM, 1 CPU core, 10GB storage
+- Frontend: 1GB RAM, 1 CPU core
+- Total: 3GB RAM, 2 CPU cores, 10GB storage
+
+**Features:**
+- Auto SSL certificates
+- Health monitoring
+- Automatic restarts
+- 50MB file upload support
+- Zero monthly cost (self-hosted)
+
+### Option 2: DigitalOcean App Platform
 
 **Frontend Service:**
 - Build: `cd frontend && npm run build`

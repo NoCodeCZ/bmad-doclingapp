@@ -167,3 +167,9 @@ temp/
 
 # DigitalOcean
 .do/
+
+# Coolify
+.env.coolify
+
+# Docker
+docker-compose.override.yml
