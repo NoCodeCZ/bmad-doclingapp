@@ -1,0 +1,8 @@
+{
+  "filename": "\u6d4b\u8bd5\u6587\u6863_test_doc_01.txt",
+  "type": "txt",
+  "category": "special_characters",
+  "size_bytes": 79,
+  "expected_behavior": "should_process_with_sanitized_filename",
+  "notes": "Filename with Chinese Unicode characters"
+}

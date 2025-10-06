@@ -1,0 +1,9 @@
+{
+  "filename": "file_10.1mb.txt",
+  "type": "txt",
+  "category": "size_limits",
+  "size_bytes": 10593800,
+  "expected_behavior": "should_fail_with_FILE_TOO_LARGE",
+  "expected_error_code": "FILE_TOO_LARGE",
+  "notes": "File over 10MB limit - should fail with size error"
+}

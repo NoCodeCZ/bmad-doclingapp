@@ -1,0 +1,9 @@
+{
+  "filename": "arabic_document.txt",
+  "type": "txt",
+  "category": "multilingual",
+  "language": "Arabic",
+  "size_bytes": 399,
+  "expected_behavior": "should_process_successfully",
+  "notes": "Arabic language document for RTL text and encoding testing"
+}

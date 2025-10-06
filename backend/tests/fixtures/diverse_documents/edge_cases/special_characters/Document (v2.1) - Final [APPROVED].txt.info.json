@@ -1,0 +1,8 @@
+{
+  "filename": "Document (v2.1) - Final [APPROVED].txt",
+  "type": "txt",
+  "category": "special_characters",
+  "size_bytes": 51,
+  "expected_behavior": "should_process_with_sanitized_filename",
+  "notes": "Filename with spaces, parentheses, brackets, and symbols"
+}

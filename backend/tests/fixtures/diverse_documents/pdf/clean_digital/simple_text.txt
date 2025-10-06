@@ -1,0 +1,21 @@
+# Simple Test Document
+
+## Introduction
+
+This is a simple text document that will be used for testing basic document processing functionality.
+
+## Content Sections
+
+### Section 1: Overview
+
+The document processing system should be able to extract text content, identify headings, and preserve the document structure.
+
+### Section 2: Key Features
+
+- Text extraction
+- Heading preservation
+- Markdown formatting
+
+## Conclusion
+
+This document serves as a basic test case for the document processing system.

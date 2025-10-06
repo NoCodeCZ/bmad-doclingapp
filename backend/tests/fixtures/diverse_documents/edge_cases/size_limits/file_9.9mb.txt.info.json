@@ -1,0 +1,8 @@
+{
+  "filename": "file_9.9mb.txt",
+  "type": "txt",
+  "category": "size_limits",
+  "size_bytes": 10382300,
+  "expected_behavior": "should_process_successfully",
+  "notes": "File just under 10MB limit - should process successfully"
+}

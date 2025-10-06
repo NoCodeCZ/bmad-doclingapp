@@ -244,6 +244,126 @@ jobs:
 3. **Real Document Testing**: Staging environment tests require actual workshop documents.
 4. **Cross-Browser Tests**: Frontend integration tests for cross-browser compatibility pending.
 
+## Diverse Document Testing (Story 3.2)
+
+### Overview
+
+Comprehensive test suite for validating document processing across diverse file types, edge cases, and quality levels to ensure workshop readiness.
+
+### Test Structure
+
+```
+backend/tests/
+├── fixtures/diverse_documents/        # Diverse document test suite
+│   ├── pdf/                          # PDF documents (clean, scanned)
+│   ├── docx/                         # DOCX with tables/images
+│   ├── pptx/                         # Complex PPTX layouts
+│   ├── xlsx/                         # Multiple sheets & formulas
+│   ├── edge_cases/                   # Edge case files
+│   ├── multilingual/                 # Non-English documents
+│   └── generate_test_documents.py    # Test document generator
+├── integration/
+│   └── test_diverse_documents.py     # Diverse document test suite
+├── performance/
+│   ├── benchmark_utils.py            # Performance benchmarking
+│   └── performance_reporter.py       # Report generation
+└── run_diverse_tests.py              # Automated test runner
+```
+
+### Running Diverse Document Tests
+
+**Full test suite:**
+```bash
+python backend/tests/run_diverse_tests.py
+```
+
+**With verbose output:**
+```bash
+python backend/tests/run_diverse_tests.py -v
+```
+
+**Specific test categories:**
+```bash
+# Performance benchmarks only
+python backend/tests/run_diverse_tests.py --benchmarks-only
+
+# Quality validation only
+python backend/tests/run_diverse_tests.py --quality-only
+
+# Full suite with all components
+python backend/tests/run_diverse_tests.py --full
+```
+
+### Test Coverage
+
+- ✅ PDF documents (clean digital, scanned low/high quality)
+- ✅ DOCX documents (with tables, with images)
+- ✅ PPTX presentations (complex layouts)
+- ✅ XLSX spreadsheets (multiple sheets, formulas)
+- ✅ Edge cases (size limits, corrupted, special characters)
+- ✅ Multilingual documents (Chinese, Arabic, Spanish)
+- ✅ Quality validation (tables, headings, images, text)
+- ✅ Performance benchmarking (p50, p95, p99 metrics)
+
+### Quality Validation Utilities
+
+**Module:** `backend/app/utils/quality_validator.py`
+
+```python
+from app.utils.quality_validator import DocumentQualityValidator
+
+validator = DocumentQualityValidator()
+report = validator.validate_document(markdown_content, filename, file_type)
+```
+
+Validates:
+- Table preservation in markdown format
+- Heading hierarchy maintenance
+- Image placeholder insertion
+- Text content extraction
+- List structure preservation
+
+### Performance Benchmarking
+
+**Module:** `backend/tests/performance/benchmark_utils.py`
+
+```python
+from backend.tests.performance.benchmark_utils import PerformanceBenchmark
+
+benchmark = PerformanceBenchmark()
+start = benchmark.start_timer()
+# ... process document ...
+benchmark.measure_processing_time("pdf", "test.pdf", size, start)
+```
+
+**Performance Thresholds:**
+- PDF: < 2 minutes (p95)
+- DOCX: < 30 seconds (p95)
+- PPTX: < 1 minute (p95)
+- XLSX: < 45 seconds (p95)
+
+### Test Reports
+
+Reports are automatically generated to `docs/reports/testing/`:
+
+1. **Diverse Document Test Report** - Success rates, performance metrics, quality results
+2. **Workshop Facilitator Guide** - Quick reference for common issues and solutions
+3. **Known Limitations** - Comprehensive documentation of system limitations
+
+### Generating Test Documents
+
+```bash
+cd backend/tests/fixtures/diverse_documents
+python3 generate_test_documents.py
+```
+
+Generates:
+- DOCX with tables
+- PPTX with complex layouts
+- XLSX with multiple sheets
+- Edge case files (size limits, special characters)
+- Multilingual documents
+
 ## Next Steps
 
 1. Create actual complex document fixtures (PDF with tables, multi-slide PPTX, large XLSX)
@@ -258,3 +378,4 @@ jobs:
 - Test Architecture: `docs/architecture.md#Testing-Strategy`
 - QA Review: `docs/qa/story-2.6-integration-testing-error-scenario-validation-qa-review.md`
 - Quality Gate: `docs/qa/gates/2.6.integration-testing-error-scenario-validation-gate.md`
+- Known Limitations: `docs/reports/testing/known_limitations.md`

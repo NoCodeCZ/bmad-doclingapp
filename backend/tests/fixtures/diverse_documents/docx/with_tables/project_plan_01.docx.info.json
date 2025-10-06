@@ -1,0 +1,16 @@
+{
+  "filename": "project_plan_01.docx",
+  "type": "docx",
+  "category": "with_tables",
+  "size_bytes": 37295,
+  "page_count": 2,
+  "features": [
+    "tables",
+    "headings",
+    "formatted_text",
+    "merged_cells"
+  ],
+  "expected_processing_time_seconds": 20,
+  "expected_quality_score": 0.9,
+  "notes": "DOCX with multiple tables including complex formatting"
+}

@@ -1,0 +1,16 @@
+{
+  "filename": "financial_analysis_01.xlsx",
+  "type": "xlsx",
+  "category": "multiple_sheets",
+  "size_bytes": 6499,
+  "sheet_count": 3,
+  "features": [
+    "multiple_sheets",
+    "formulas",
+    "tables",
+    "cross_sheet_references"
+  ],
+  "expected_processing_time_seconds": 25,
+  "expected_quality_score": 0.88,
+  "notes": "XLSX with multiple sheets, formulas, and cross-sheet references"
+}

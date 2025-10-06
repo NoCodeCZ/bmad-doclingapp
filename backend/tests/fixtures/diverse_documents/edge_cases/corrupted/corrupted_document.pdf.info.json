@@ -1,0 +1,9 @@
+{
+  "filename": "corrupted_document.pdf",
+  "type": "pdf",
+  "category": "corrupted",
+  "size_bytes": 36,
+  "expected_behavior": "should_fail_with_CORRUPTED_FILE",
+  "expected_error_code": "CORRUPTED_FILE",
+  "notes": "Invalid PDF content - should fail gracefully"
+}

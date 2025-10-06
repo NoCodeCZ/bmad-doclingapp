@@ -1,0 +1,9 @@
+{
+  "filename": "spanish_document.txt",
+  "type": "txt",
+  "category": "multilingual",
+  "language": "Spanish",
+  "size_bytes": 455,
+  "expected_behavior": "should_process_successfully",
+  "notes": "Spanish language document with special characters (\u00f1, accents)"
+}

@@ -1,0 +1,16 @@
+{
+  "filename": "workshop_presentation_01.pptx",
+  "type": "pptx",
+  "category": "complex_layouts",
+  "size_bytes": 30395,
+  "slide_count": 3,
+  "features": [
+    "multi_column",
+    "bullet_lists",
+    "text_boxes",
+    "headings"
+  ],
+  "expected_processing_time_seconds": 30,
+  "expected_quality_score": 0.85,
+  "notes": "PPTX with complex multi-column layouts and text boxes"
+}

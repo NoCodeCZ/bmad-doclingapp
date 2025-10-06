@@ -1,0 +1,12 @@
+# Documento de Prueba en Español
+
+## Introducción
+
+Este es un archivo de prueba para el procesamiento de documentos en español. El sistema debe poder procesar y extraer correctamente el texto en español con caracteres especiales.
+
+## Contenido de Prueba
+
+1. Reconocimiento de caracteres españoles (ñ, á, é, í, ó, ú, ü)
+2. Estructura de encabezados
+3. Procesamiento de codificación
+4. Puntuación española (¿interrogación? ¡exclamación!)

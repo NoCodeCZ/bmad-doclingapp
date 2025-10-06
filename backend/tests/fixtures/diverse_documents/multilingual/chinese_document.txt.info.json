@@ -1,0 +1,9 @@
+{
+  "filename": "chinese_document.txt",
+  "type": "txt",
+  "category": "multilingual",
+  "language": "Chinese (Simplified)",
+  "size_bytes": 244,
+  "expected_behavior": "should_process_successfully",
+  "notes": "Chinese language document for encoding and text extraction testing"
+}
