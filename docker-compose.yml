@@ -1,4 +1,18 @@
 services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: docling-nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - docling-network
+    restart: unless-stopped
+
   backend:
     build:
       context: ./backend
@@ -9,10 +23,10 @@ services:
       - SUPABASE_KEY=${SUPABASE_KEY}
       - MAX_FILE_SIZE=52428800
       - PROCESSING_TIMEOUT=600
-      - ALLOWED_ORIGINS=${FRONTEND_URL}
+      - ALLOWED_ORIGINS=*
       - ENVIRONMENT=production
-    ports:
-      - "8080:8080"
+    expose:
+      - "8080"
     volumes:
       - uploads:/app/uploads
     networks:
@@ -31,15 +45,15 @@ services:
       args:
         - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL}
         - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
-        - NEXT_PUBLIC_API_URL=${BACKEND_URL}
+        - NEXT_PUBLIC_API_URL=/api
     container_name: docling-frontend
     environment:
-      - NEXT_PUBLIC_API_URL=${BACKEND_URL}
+      - NEXT_PUBLIC_API_URL=/api
       - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL}
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
       - NODE_ENV=production
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     depends_on:
       - backend
     networks:
