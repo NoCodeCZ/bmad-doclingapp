@@ -2,9 +2,8 @@
 const nextConfig = {
   // Add for Docker deployment
   output: 'standalone',
-  
+
   experimental: {
-    appDir: true,
     // Increase body size limit
     serverActions: {
       bodySizeLimit: '50mb'
@@ -20,16 +19,16 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  env: {
-    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
-  },
+  // Only configure rewrites if API URL is available (runtime, not build time)
   async rewrites() {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (!apiUrl) {
+      return [];
+    }
     return [
       {
         source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
+        destination: `${apiUrl}/api/:path*`,
       },
     ];
   },
