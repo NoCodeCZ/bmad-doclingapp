@@ -14,7 +14,7 @@ interface UseFileUploadReturn extends UseFileUploadState {
 }
 
 // File validation constants
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
+const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB in bytes
 const SUPPORTED_FORMATS = ['pdf', 'docx', 'pptx', 'xlsx'] as const;
 const SUPPORTED_MIME_TYPES = [
   'application/pdf',
@@ -34,7 +34,7 @@ const validateFile = (file: File): { valid: boolean; error?: string } => {
     const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
     return {
       valid: false,
-      error: `File too large (${fileSizeMB}MB) - maximum size is 10MB. Try compressing your ${getFileExtension(file.name).toUpperCase()} or splitting into multiple files.`,
+      error: `File too large (${fileSizeMB}MB) - maximum size is 50MB. Try compressing your ${getFileExtension(file.name).toUpperCase()} or splitting into multiple files.`,
     };
   }
 
