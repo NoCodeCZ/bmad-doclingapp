@@ -46,7 +46,7 @@ export default function Home() {
   const pollDocumentStatus = async (docId: string) => {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-      const response = await fetch(`${apiUrl}/api/status/${docId}`);
+      const response = await fetch(`${apiUrl}/status/${docId}`);
       if (!response.ok) {
         throw new Error('Failed to get document status');
       }
