@@ -1,0 +1,2 @@
+This is a plain text file that should not be supported for document processing.
+It is used to test error handling for unsupported file formats.
