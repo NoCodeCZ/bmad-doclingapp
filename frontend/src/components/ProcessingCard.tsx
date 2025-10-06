@@ -149,12 +149,18 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({
   };
 
   return (
-    <Card className="w-full px-4 md:px-0 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto transition-all duration-300">
+    <Card className={cn(
+      "w-full px-4 md:px-0 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto transition-all duration-300",
+      (status === 'processing' || status === 'queued') && "animate-in fade-in slide-in-from-bottom-4"
+    )}>
       <CardHeader className="text-center p-4 md:p-6">
-        <div className="flex justify-center mb-3 md:mb-4 transition-transform duration-300 hover:scale-105">
+        <div className="flex justify-center mb-3 md:mb-4 transition-transform duration-300">
           {getStatusIcon()}
         </div>
-        <CardTitle className="text-base md:text-lg lg:text-xl transition-all duration-300">
+        <CardTitle className={cn(
+          "text-base md:text-lg lg:text-xl transition-all duration-300",
+          (status === 'processing' || status === 'queued') && "animate-pulse"
+        )}>
           {getStatusText()}
         </CardTitle>
         <p className="text-sm md:text-base text-muted-foreground break-words px-2 md:px-4">
@@ -165,7 +171,7 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({
       <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6">
         {/* Progress Bar with smooth animations */}
         {(status === 'processing' || status === 'queued') && (
-          <div className="space-y-2 transition-all duration-300">
+          <div className="space-y-2 transition-all duration-300 animate-in fade-in slide-in-from-top-2">
             <div className="flex justify-between text-sm md:text-base">
               <span className="font-medium">Progress</span>
               <span className="font-semibold tabular-nums">{progress}%</span>
@@ -173,13 +179,15 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({
             <Progress
               value={progress}
               className={cn(
-                "w-full h-3 md:h-4 transition-all duration-300",
+                "w-full h-3 md:h-4 transition-all duration-500",
                 // Add gradient based on status/stage
-                progressStage?.toLowerCase().includes('uploading') && "bg-blue-100",
-                progressStage?.toLowerCase().includes('finalizing') && "bg-amber-100",
-                status === 'processing' && !progressStage?.toLowerCase().includes('finalizing') && "bg-amber-100"
+                progressStage?.toLowerCase().includes('uploading') && "bg-blue-100 dark:bg-blue-900",
+                progressStage?.toLowerCase().includes('finalizing') && "bg-amber-100 dark:bg-amber-900",
+                status === 'processing' && !progressStage?.toLowerCase().includes('finalizing') && "bg-amber-100 dark:bg-amber-900"
               )}
             />
+            {/* Pulsing indicator bar underneath for active processing */}
+            <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-pulse rounded-full" />
           </div>
         )}
 
@@ -199,10 +207,13 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({
         {/* Estimated Time with smooth fade-in */}
         {status === 'processing' && estimatedTime !== undefined && estimatedTime > 0 && (
           <div className="text-center text-sm md:text-base text-muted-foreground animate-in fade-in duration-300">
-            <span className="font-medium">Estimated time remaining:</span>{' '}
-            <span className="font-semibold text-amber-600 dark:text-amber-400 tabular-nums">
-              {formatTime(estimatedTime)}
-            </span>
+            <div className="flex items-center justify-center gap-2">
+              <Loader2 className="h-4 w-4 animate-spin text-amber-500" />
+              <span className="font-medium">Estimated time remaining:</span>{' '}
+              <span className="font-semibold text-amber-600 dark:text-amber-400 tabular-nums">
+                {formatTime(estimatedTime)}
+              </span>
+            </div>
           </div>
         )}
 

@@ -202,26 +202,9 @@ export default function Home() {
                 errorMessage={documentStatus.error_message}
                 processingMode={documentStatus.processing_options.processing_mode}
                 ocrEnabled={documentStatus.processing_options.ocr_enabled}
+                documentId={documentId || undefined}
+                onReset={handleReset}
               />
-
-              {/* Action Buttons */}
-              <div className="text-center space-y-4">
-                {documentStatus.status === 'complete' && documentStatus.download_url && (
-                  <button
-                    onClick={handleDownload}
-                    className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                  >
-                    Download Markdown
-                  </button>
-                )}
-
-                <button
-                  onClick={handleReset}
-                  className="inline-flex items-center px-6 py-3 border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ml-0 sm:ml-4"
-                >
-                  Process Another Document
-                </button>
-              </div>
             </div>
           ) : null}
         </div>

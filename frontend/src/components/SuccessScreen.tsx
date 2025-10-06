@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Download, FileText, RefreshCw } from 'lucide-react';
+import { CheckCircle2, Download, FileText, RefreshCw, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { ErrorAlert } from '@/components/ErrorAlert';
@@ -207,8 +207,17 @@ export const SuccessScreen: React.FC<SuccessScreenProps> = ({
             )}
             aria-label={`Download ${markdownFilename}`}
           >
-            <Download className="h-5 w-5 mr-2" aria-hidden="true" />
-            {isDownloading ? 'Downloading...' : 'Download Markdown'}
+            {isDownloading ? (
+              <>
+                <Loader2 className="h-5 w-5 mr-2 animate-spin" aria-hidden="true" />
+                Downloading...
+              </>
+            ) : (
+              <>
+                <Download className="h-5 w-5 mr-2" aria-hidden="true" />
+                Download Markdown
+              </>
+            )}
           </Button>
 
           {/* Process Another Document Button - AC5: Reset state */}
