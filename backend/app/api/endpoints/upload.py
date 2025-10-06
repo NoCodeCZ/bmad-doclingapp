@@ -12,9 +12,37 @@ from app.core.exceptions import (
 from app.utils.logger import log_error
 import uuid
 import logging
+import re
+from urllib.parse import quote
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
+
+
+def sanitize_filename(filename: str) -> str:
+    """
+    Sanitize filename for Supabase storage.
+    Replaces spaces and special characters with safe alternatives.
+    """
+    # Get file extension
+    parts = filename.rsplit('.', 1)
+    name = parts[0] if len(parts) > 1 else filename
+    ext = parts[1] if len(parts) > 1 else ''
+
+    # Replace spaces with underscores
+    name = name.replace(' ', '_')
+
+    # Remove or replace special characters, keep only alphanumeric, underscore, hyphen
+    name = re.sub(r'[^a-zA-Z0-9_\-]', '_', name)
+
+    # Remove multiple consecutive underscores
+    name = re.sub(r'_+', '_', name)
+
+    # Remove leading/trailing underscores
+    name = name.strip('_')
+
+    # Reconstruct filename
+    return f"{name}.{ext}" if ext else name
 
 
 @router.post("/upload", response_model=FileUploadResponse)
@@ -58,14 +86,17 @@ async def upload_document(
     }
 
     try:
-        # Create document record in database
+        # Sanitize filename for storage
+        sanitized_filename = sanitize_filename(file.filename)
+
+        # Create document record in database with original filename
         doc_id = await supabase_service.create_document_record(
             filename=file.filename,
             processing_options=processing_options
         )
 
-        # Upload file to Supabase storage
-        file_path = f"{doc_id}/{file.filename}"
+        # Upload file to Supabase storage with sanitized filename
+        file_path = f"{doc_id}/{sanitized_filename}"
         await supabase_service.upload_file(
             bucket="uploads",
             file_path=file_path,
@@ -73,11 +104,11 @@ async def upload_document(
             content_type=file.content_type
         )
 
-        # Start background processing
+        # Start background processing with sanitized filename
         background_tasks.add_task(
             processing_service.process_document_async,
             document_id=doc_id,
-            filename=file.filename,
+            filename=sanitized_filename,
             processing_options=processing_options
         )
 
