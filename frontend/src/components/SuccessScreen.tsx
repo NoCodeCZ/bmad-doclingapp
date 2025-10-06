@@ -234,6 +234,17 @@ export const SuccessScreen: React.FC<SuccessScreenProps> = ({
         <div className="text-center text-xs text-muted-foreground pt-2">
           <p>Your document has been successfully converted to markdown format.</p>
         </div>
+
+        {/* Next Steps Link */}
+        <div className="text-center pt-4 border-t">
+          <p className="text-sm font-medium mb-2">Next Steps</p>
+          <a
+            href="/instructions"
+            className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+          >
+            How to use this markdown in Open WebUI →
+          </a>
+        </div>
       </CardContent>
     </Card>
   );

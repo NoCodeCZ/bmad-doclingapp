@@ -45,7 +45,8 @@ export default function Home() {
 
   const pollDocumentStatus = async (docId: string) => {
     try {
-      const response = await fetch(`/api/status/${docId}`);
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/status/${docId}`);
       if (!response.ok) {
         throw new Error('Failed to get document status');
       }
@@ -126,7 +127,7 @@ export default function Home() {
               </p>
             </div>
             <a
-              href="#instructions"
+              href="/instructions"
               className="text-primary hover:underline text-sm font-medium"
             >
               How to use in Open WebUI →

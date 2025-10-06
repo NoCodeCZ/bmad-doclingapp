@@ -280,6 +280,16 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
           Upload Document
         </Button>
       )}
+
+      {/* Instructions Link */}
+      <div className="text-center mt-4">
+        <a
+          href="/instructions"
+          className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+        >
+          Need help? View step-by-step instructions →
+        </a>
+      </div>
     </div>
   );
 };

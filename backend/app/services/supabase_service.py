@@ -134,10 +134,20 @@ class SupabaseService:
                 expires_in=expires_in
             )
             
-            if result.data:
-                return result.data['signedUrl']
-            else:
-                raise Exception("Failed to create signed URL")
+            # The supabase-py client returns a response object with 'signedURL' (note the case)
+            # Handle different response formats
+            if isinstance(result, dict):
+                # Direct dictionary response
+                url = result.get('signedURL') or result.get('signedUrl') or result.get('signed_url')
+                if url:
+                    return url
+            elif hasattr(result, 'get'):
+                # Object with get method
+                url = result.get('signedURL') or result.get('signedUrl') or result.get('signed_url')
+                if url:
+                    return url
+                    
+            raise Exception(f"Could not extract signed URL from response: {result}")
                 
         except Exception as e:
             logger.error(f"Error creating signed URL for {bucket}/{file_path}: {e}")
