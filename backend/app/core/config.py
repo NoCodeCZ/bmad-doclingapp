@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from typing import List
+from typing import List, Union
 import os
 
 
@@ -8,9 +8,9 @@ class Settings(BaseSettings):
     APP_NAME: str = "Workshop Document Processor"
     DEBUG: bool = False
     VERSION: str = "1.0.0"
-    
-    # CORS
-    ALLOWED_ORIGINS: List[str] = [
+
+    # CORS - can be "*" for allow all, or a list of origins
+    ALLOWED_ORIGINS: Union[str, List[str]] = [
         "http://localhost:3000",
         "http://localhost:3001",
         "https://workshop-document-processor.ondigitalocean.app",

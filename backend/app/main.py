@@ -16,10 +16,16 @@ app = FastAPI(
 )
 
 # Configure CORS
+# Handle both "*" (allow all) and list of specific origins
+allowed_origins = settings.ALLOWED_ORIGINS
+if isinstance(allowed_origins, str):
+    # If it's a string (like "*"), use it directly
+    allowed_origins = [allowed_origins] if allowed_origins != "*" else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ALLOWED_ORIGINS,
-    allow_credentials=True,
+    allow_origins=allowed_origins,
+    allow_credentials=True if allowed_origins != ["*"] else False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
