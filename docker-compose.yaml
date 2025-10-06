@@ -4,8 +4,8 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     container_name: docling-nginx
-    ports:
-      - "80:80"
+    expose:
+      - "80"
     depends_on:
       - frontend
       - backend
