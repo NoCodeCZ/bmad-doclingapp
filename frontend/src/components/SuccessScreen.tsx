@@ -70,7 +70,7 @@ export const SuccessScreen: React.FC<SuccessScreenProps> = ({
       setDownloadError(null);
 
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-      const response = await fetch(`${apiUrl}/download/${documentId}`);
+      const response = await fetch(`${apiUrl}/api/download/${documentId}`);
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));

@@ -124,7 +124,7 @@ export const useFileUpload = (): UseFileUploadReturn => {
 
       // Make API call to upload endpoint
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-      const response = await fetch(`${apiUrl}/upload`, {
+      const response = await fetch(`${apiUrl}/api/upload`, {
         method: 'POST',
         body: formData,
       });

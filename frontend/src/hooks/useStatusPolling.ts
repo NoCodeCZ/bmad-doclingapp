@@ -140,7 +140,8 @@ export const useStatusPolling = (): UseStatusPollingReturn => {
       // Create new AbortController for this request
       abortControllerRef.current = new AbortController();
 
-      const response = await fetch(`/api/status/${documentId}`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/status/${documentId}`, {
         signal: abortControllerRef.current.signal,
       });
 
