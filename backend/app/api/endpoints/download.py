@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 from app.services.supabase_service import supabase_service
-from app.utils.filename_utils import get_safe_filename
+from app.utils.filename_utils import get_safe_filename, clean_filename
 import logging
 
 router = APIRouter()
@@ -35,14 +35,18 @@ async def download_document(document_id: str):
                 detail=f"Document is not ready for download. Current status: {document['status']}. Please wait for processing to complete."
             )
 
-        # Clean filename for safe download (AC3)
+        # Get original filename from database
         original_filename = document['filename']
+
+        # Clean filename for safe download header (AC3)
+        # This is what the user will see when downloading
         cleaned_filename = get_safe_filename(original_filename, fallback="document.md")
 
-        # Construct processed file path using original structure
-        base_name = original_filename.rsplit('.', 1)[0] if '.' in original_filename else original_filename
-        processed_filename = f"{base_name}.md"
-        file_path = f"{document_id}/{processed_filename}"
+        # Construct the actual storage file path using the same sanitization as upload/processing
+        # This matches what processing_service.py does: Path(filename).stem + ".md"
+        # The clean_filename function replaces spaces with underscores, just like Path.stem did during upload
+        storage_filename = clean_filename(original_filename, replacement_ext=".md")
+        file_path = f"{document_id}/{storage_filename}"
 
         # Download file from Supabase storage
         try:
