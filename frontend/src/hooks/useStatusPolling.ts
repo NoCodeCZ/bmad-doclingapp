@@ -141,7 +141,11 @@ export const useStatusPolling = (): UseStatusPollingReturn => {
       abortControllerRef.current = new AbortController();
 
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-      const response = await fetch(`${apiUrl}/api/status/${documentId}`, {
+      // Don't add /api prefix if apiUrl already ends with /api (nginx proxy setup)
+      const endpoint = apiUrl.endsWith('/api')
+        ? `${apiUrl}/status/${documentId}`
+        : `${apiUrl}/api/status/${documentId}`;
+      const response = await fetch(endpoint, {
         signal: abortControllerRef.current.signal,
       });
 
