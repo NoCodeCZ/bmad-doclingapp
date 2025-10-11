@@ -6,3 +6,8 @@ supabase==2.10.0
 python-multipart==0.0.6
 docling==2.55.1
 python-dotenv==1.0.0
+
+# OCR support
+easyocr>=1.7.0
+pytesseract>=0.3.10
+pillow>=10.0.0

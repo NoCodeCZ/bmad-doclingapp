@@ -175,6 +175,29 @@ class ProcessingService:
             except Exception as conv_error:
                 # Check for common corruption/protection indicators
                 error_str = str(conv_error).lower()
+
+                # Check for OCR-related errors
+                if ocr_enabled and any(ocr_indicator in error_str for ocr_indicator in [
+                    'tesseract',
+                    'ocr',
+                    'easyocr',
+                    'pytesseract',
+                ]):
+                    log_error(
+                        error_message="OCR processing error - OCR dependencies may not be installed",
+                        error_code="OCR_ERROR",
+                        document_id=document_id,
+                        exception=conv_error,
+                    )
+                    # Update document with helpful error message
+                    await supabase_service.update_document_status(
+                        document_id,
+                        'failed',
+                        'OCR processing failed. Please try without OCR enabled or contact support.'
+                    )
+                    raise DoclingProcessingError(details="OCR processing failed")
+
+                # Check for file corruption/protection
                 if any(indicator in error_str for indicator in [
                     'password',
                     'encrypted',
